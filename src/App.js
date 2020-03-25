@@ -4,6 +4,7 @@ import ExpenseForm from "./components/ExpenseForm";
 import ExpenseList from "./components/ExpenseList";
 import { Alert, AlertHook } from "./components/Alert/index";
 import uuid from "uuid/v4";
+import StyledTotal from "./components/styledComponents/StyledTotal";
 
 const initialExpenses = localStorage.getItem("expenses")
     ? JSON.parse(localStorage.getItem("expenses"))
@@ -93,7 +94,7 @@ const App = () => {
     return (
         <>
             {alert && <Alert type={alert.type} text={alert.text} />}
-            <h1>Budget calculator</h1>
+            <h1>Expenses calculator</h1>
             <main className="App">
                 <ExpenseForm
                     charge={charge}
@@ -109,16 +110,16 @@ const App = () => {
                     clearItems={clearItems}
                 />
             </main>
-            <h1>
+            <StyledTotal>
                 Total Spending :
-                <span className="total">
+                <span>
                     $
                     {expenses.reduce(
                         (total, curr) => total + parseInt(curr.amount),
                         0
                     )}
                 </span>
-            </h1>
+            </StyledTotal>
         </>
     );
 };

@@ -1,7 +1,8 @@
 import React from "react";
+import StyledAlert from "../styledComponents/StyledAlert";
 
 const Alert = ({ type, text }) => {
-    return <div className={`alert alert-${type}`}>{text}</div>;
+    return <StyledAlert className={`alert alert-${type}`}>{text}</StyledAlert>;
 };
 
 export default Alert;

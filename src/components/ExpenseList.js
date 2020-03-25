@@ -1,24 +1,27 @@
 import React from "react";
 import ExpenseItem from "./ExpenseItem";
 import { MdDelete } from "react-icons/md";
-
+import StyledExpenseItem from "./styledComponents/StyledExpenseItem";
+import StyledButton from "./styledComponents/StyledButton";
+import StyledList from "./styledComponents/StyledList";
 const ExpenseList = ({ expenses, handleEdit, handleDelete, clearItems }) => {
     return (
         <>
-            <ul className="list">
+            <StyledList className="list">
                 {expenses.map(expense => (
-                    <ExpenseItem
-                        key={expense.id}
-                        expense={expense}
-                        handleEdit={handleEdit}
-                        handleDelete={handleDelete}
-                    />
+                    <StyledExpenseItem key={expense.id}>
+                        <ExpenseItem
+                            expense={expense}
+                            handleEdit={handleEdit}
+                            handleDelete={handleDelete}
+                        />
+                    </StyledExpenseItem>
                 ))}
-            </ul>
+            </StyledList>
             {expenses.length > 0 && (
-                <button className="btn" onClick={clearItems}>
-                    Clear Expenses <MdDelete className="btn-icon" />
-                </button>
+                <StyledButton onClick={clearItems}>
+                    Reset Expenses <MdDelete />
+                </StyledButton>
             )}
         </>
     );

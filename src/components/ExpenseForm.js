@@ -1,5 +1,7 @@
 import React from "react";
 import { MdSend } from "react-icons/md";
+import StyledButton from "./styledComponents/StyledButton";
+import StyledInput from "./styledComponents/StyledInput";
 
 const ExpenseForm = ({ charge, amount, handleChange, handleSubmit, edit }) => {
     return (
@@ -7,10 +9,10 @@ const ExpenseForm = ({ charge, amount, handleChange, handleSubmit, edit }) => {
             <div className="form-center">
                 <div className="form-group">
                     <label htmlFor="charge">charge</label>
-                    <input
+                    <StyledInput
                         onChange={handleChange}
                         type="text"
-                        className="form-control"
+                        autoComplete="off"
                         id="charge"
                         name="charge"
                         placeholder="e.g. rent"
@@ -19,10 +21,10 @@ const ExpenseForm = ({ charge, amount, handleChange, handleSubmit, edit }) => {
                 </div>
                 <div className="form-group">
                     <label htmlFor="amount">amount</label>
-                    <input
+                    <StyledInput
                         onChange={handleChange}
                         type="number"
-                        className="form-control"
+                        autoComplete="off"
                         id="amount"
                         name="amount"
                         placeholder="e.g. 100"
@@ -30,10 +32,10 @@ const ExpenseForm = ({ charge, amount, handleChange, handleSubmit, edit }) => {
                     />
                 </div>
             </div>
-            <button className="btn" type="submit" onClick={handleSubmit}>
+            <StyledButton type="submit" onClick={handleSubmit}>
                 {!edit ? "Submit" : "Edit"}
-                <MdSend className="btn-icon" />
-            </button>
+                <MdSend />
+            </StyledButton>
         </form>
     );
 };

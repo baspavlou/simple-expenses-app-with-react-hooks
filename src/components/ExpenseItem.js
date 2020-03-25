@@ -1,15 +1,15 @@
 import React from "react";
 import { MdEdit, MdDelete } from "react-icons/md";
 
-const ExpenseList = ({ expense, handleEdit, handleDelete }) => {
+const ExpenseItem = ({ expense, handleEdit, handleDelete }) => {
     const { id, charge, amount } = expense;
     return (
-        <li className="item">
+        <>
             <div className="info">
                 <span className="expense">{charge}</span>
-                <span className="amount">${amount}</span>
             </div>
             <div>
+                <span className="amount">${amount}</span>
                 <button
                     className="edit-btn"
                     aria-label="edit button"
@@ -25,8 +25,8 @@ const ExpenseList = ({ expense, handleEdit, handleDelete }) => {
                     <MdDelete />
                 </button>
             </div>
-        </li>
+        </>
     );
 };
 
-export default ExpenseList;
+export default ExpenseItem;
