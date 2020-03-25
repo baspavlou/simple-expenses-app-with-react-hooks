@@ -1,7 +1,7 @@
 import React from "react";
 
-const ExpenseList = () => {
-    return <div>Alert</div>;
+const ExpenseList = ({ type, text }) => {
+    return <div className={`alert alert-${type}`}>{text}</div>;
 };
 
 export default ExpenseList;
