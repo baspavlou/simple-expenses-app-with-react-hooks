@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import ExpenseForm from "./components/ExpenseForm";
 import ExpenseList from "./components/ExpenseList";
-import Alert from "./components/Alert";
+import { Alert, AlertHook } from "./components/Alert/index";
 import uuid from "uuid/v4";
 
 const initialExpenses = localStorage.getItem("expenses")
@@ -13,25 +13,19 @@ const App = () => {
     const [expenses, setExpenses] = useState(initialExpenses);
     const [charge, setCharge] = useState("");
     const [amount, setAmount] = useState("");
-    const [alert, setAlert] = useState({ show: false });
+    const { alert, showAlert } = AlertHook();
     const [edit, setEdit] = useState(false);
     const [id, setId] = useState(0);
 
     useEffect(() => {
-        console.log("useeffect");
         localStorage.setItem("expenses", JSON.stringify(expenses));
     }, [expenses]);
+
     const handleChange = e => {
         const { name, value } = e.target;
         name === "charge" ? setCharge(value) : setAmount(value);
     };
 
-    const handleAlert = ({ type, text }) => {
-        setAlert({ show: true, type, text });
-        setTimeout(() => {
-            setAlert({ show: false });
-        }, 3000);
-    };
     const handleSubmit = e => {
         e.preventDefault();
         if (charge !== "" && amount > 0) {
@@ -41,8 +35,7 @@ const App = () => {
                 });
                 setExpenses(tempExpenses);
                 setEdit(false);
-
-                handleAlert({
+                showAlert({
                     type: "success",
                     text: "Expense successfully edited"
                 });
@@ -56,7 +49,7 @@ const App = () => {
                     }
                 ]);
 
-                handleAlert({
+                showAlert({
                     type: "success",
                     text: "Expense successfully inserted"
                 });
@@ -64,17 +57,16 @@ const App = () => {
             setCharge("");
             setAmount("");
         } else {
-            handleAlert({
+            showAlert({
                 type: "danger",
                 text: "Something went wrong"
             });
         }
     };
-    //clear items
 
     const clearItems = () => {
         setExpenses([]);
-        handleAlert({
+        showAlert({
             type: "danger",
             text: "All items deleted"
         });
@@ -92,7 +84,7 @@ const App = () => {
             return item.id !== id && item;
         });
         setExpenses(newExpenses);
-        handleAlert({
+        showAlert({
             type: "danger",
             text: "Item deleted"
         });
@@ -100,7 +92,7 @@ const App = () => {
 
     return (
         <>
-            {alert.show && <Alert type={alert.type} text={alert.text} />}
+            {alert && <Alert type={alert.type} text={alert.text} />}
             <h1>Budget calculator</h1>
             <main className="App">
                 <ExpenseForm
