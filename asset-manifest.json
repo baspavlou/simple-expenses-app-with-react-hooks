@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/simple-expenses-app-with-react-hooks/static/css/main.788d0cbb.chunk.css",
+    "main.js": "/simple-expenses-app-with-react-hooks/static/js/main.c9e25e5e.chunk.js",
+    "main.js.map": "/simple-expenses-app-with-react-hooks/static/js/main.c9e25e5e.chunk.js.map",
+    "runtime-main.js": "/simple-expenses-app-with-react-hooks/static/js/runtime-main.7859e675.js",
+    "runtime-main.js.map": "/simple-expenses-app-with-react-hooks/static/js/runtime-main.7859e675.js.map",
+    "static/js/2.a6223373.chunk.js": "/simple-expenses-app-with-react-hooks/static/js/2.a6223373.chunk.js",
+    "static/js/2.a6223373.chunk.js.map": "/simple-expenses-app-with-react-hooks/static/js/2.a6223373.chunk.js.map",
+    "index.html": "/simple-expenses-app-with-react-hooks/index.html",
+    "precache-manifest.82272abf121511ef20ba0d3e106d5640.js": "/simple-expenses-app-with-react-hooks/precache-manifest.82272abf121511ef20ba0d3e106d5640.js",
+    "service-worker.js": "/simple-expenses-app-with-react-hooks/service-worker.js",
+    "static/css/main.788d0cbb.chunk.css.map": "/simple-expenses-app-with-react-hooks/static/css/main.788d0cbb.chunk.css.map",
+    "static/js/2.a6223373.chunk.js.LICENSE.txt": "/simple-expenses-app-with-react-hooks/static/js/2.a6223373.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7859e675.js",
+    "static/js/2.a6223373.chunk.js",
+    "static/css/main.788d0cbb.chunk.css",
+    "static/js/main.c9e25e5e.chunk.js"
+  ]
+}
